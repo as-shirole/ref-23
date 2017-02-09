@@ -36,7 +36,7 @@ gem 'bson'
 gem 'mongoid'
 gem 'devise'
 
-
+gem 'sprockets', '3.6.3'
 
 gem 'select2-rails'
 gem 'figaro'
