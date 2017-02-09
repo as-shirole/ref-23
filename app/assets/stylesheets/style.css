@@ -37,7 +37,7 @@ body a:hover{
     align-content: justify;
 }
 .banner {
-	background:url("/assets/a.jpg")no-repeat center 0px;
+	background:image-url("/assets/a.jpg")no-repeat center 0px;
 	-webkit-background-size:cover;
 	background-size:cover;
 	-moz-background-size:cover;
@@ -635,7 +635,7 @@ h2.resp-accordion {
 	height: 32px;
 	border: none;
 	text-indent: 100%;
-	background: url("/assets/move-up.png") no-repeat 0px 0px;
+	background: image-url("/assets/move-up.png") no-repeat 0px 0px;
 	z-index:999;
 }
 #toTopHover {
