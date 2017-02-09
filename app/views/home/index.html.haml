@@ -1,0 +1,311 @@
+%html
+  %head
+    %title My Resume
+    / mobile apps
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "My Resume Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,\n\t\tSmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design", :name => "keywords"}/
+    %script{:type => "application/x-javascript"}
+      :cdata
+        addEventListener("load", function() {
+        setTimeout(hideURLbar, 0);
+        }, false);
+        function hideURLbar() {
+        window.scrollTo(0, 1);
+        }
+    %link{:href => "/assets/style.css", :media => "all", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "assets/swipebox.css", :rel => "stylesheet"}/
+    :javascript
+      jQuery(document).ready(function($) {
+      	$(".scroll").click(function(event) {
+      		event.preventDefault();
+      		$('html,body').animate({
+      			scrollTop : $(this.hash).offset().top
+      		}, 1000);
+      	});
+      });
+    / //end-smooth-scrolling
+  %body
+    / banner
+    #home.banner
+      .banner-info
+        .container
+          .col-md-8.header-right
+            %h1 I'm Akshay Shirole
+            %h6 Ruby on Rails Developer
+            %ul.address
+              %li
+                %ul.address-text
+                  %li
+                    %b D.O.B
+                  %li
+                    21-Apr-1993
+              %li
+                %ul.address-text
+                  %li
+                    %b PHONE
+                  %li
+                    +919028440783
+              %li
+                %ul.address-text
+                  %li
+                    %b ADDRESS
+                  %li
+                    Pune, Maharashtra,
+              %li
+                %ul.address-text
+                  %li
+                    %b E-MAIL
+                  %li
+                    %a{:href => "mailto:as.shirole10@gmail.com"} as.shirole10@gmail.com
+              /
+                <li>
+                <ul class="address-text">
+                <li><b>WEBSITE </b></li>
+                <li><a href="http://w3layouts.com">www.myresume.com</a></li>
+                </ul>
+                </li>
+          .clearfix
+    / //banner
+    / top-nav
+    .top-nav.wow
+      .container
+        .navbar-header.logo
+          %button.navbar-toggle.collapsed{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+            Menu
+        / Collect the nav links, forms, and other content for toggling
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          .menu
+            %ul.nav.navbar
+              %li
+                %a.scroll{:href => "#work"} Experience
+              %li
+                %a.scroll{:href => "#education"} Education
+              %li
+                %a.scroll{:href => "#skills"} Skills
+              %li
+                %a.scroll{:href => "#projects"} My Projects
+              %li
+                %a.scroll{:href => "#contact"} Contact
+            .clearfix
+    / //top-nav
+    / work-experience
+    #work.work
+      .container
+        %h3.title Work Experience
+        .work-info
+          .col-md-6.work-left
+            %h4 2015 - Till Now
+          .col-md-6.work-right
+            %h5
+              %span.glyphicon.glyphicon-briefcase>
+              Birdvision Consulting Pvt Ltd
+            %p
+              Started working as a Trainee Engineer from 3rd of March 2015. And from June 2015 started as working Junior Technical Ananlyst.
+          .clearfix
+    / //work-experience
+    / education
+    #education.education
+      .container
+        %h3.title Education
+        .work-info
+          .col-md-6.work-left
+            %h4 Bachelor Degree - 2014
+          .col-md-6.work-right
+            %h5
+              %span.glyphicon.glyphicon-education>
+              University of Pune
+            %p
+              Completed BE Computer in March 2014 with Higer Second Class from University on Pune
+          .clearfix
+        .work-info
+          .col-md-6.work-right.work-right2
+            %h4 Diploma in Computer Engineering - 2011
+          .col-md-6.work-left.work-left2
+            %h5
+              MSBTE
+              %span.glyphicon.glyphicon-education
+            %p
+              Finished Diploma in Computer Engineering with Distinction from Maharastra Board of Technical Education
+          .clearfix
+        .work-info
+          .col-md-6.work-left
+            %h4 SSC - 2008
+          .col-md-6.work-right
+            %h5
+              %span.glyphicon.glyphicon-education
+              Maharastra Board
+            %p
+              Complted Secondary education from Maharastra Borard with Distinction
+          .clearfix
+    / //education
+    / skills
+    #skills.skills
+      .container
+        %h3.title Skills
+        .skills-info
+          .col-md-6.bar-grids
+            %h6
+              RAILS
+              %span 80%
+            .progress
+              .progress-bar.progress-bar-striped.active{:style => "width: 80%"}
+            %h6
+              UI DESIGN &amp; DEVELOPER
+              %span 70%
+            .progress
+              .progress-bar.progress-bar-striped.active{:style => "width: 70%"}
+            %h6
+              HTML/CSS
+              %span 90%
+            .progress
+              .progress-bar.progress-bar-striped.active{:style => "width: 90%"}
+            %h6
+              Javascript/JQuery
+              %span 75%
+            .progress
+              .progress-bar.progress-bar-striped.active{:style => "width: 75%"}
+            %h6
+              MongoDB
+              %span 40%
+            .progress
+              .progress-bar.progress-bar-striped.active{:style => "width: 40%"}
+          .col-md-6.bar-grids
+            %h6
+              AJAX
+              %span 85%
+            .progress
+              .progress-bar.progress-bar-striped.active{:style => "width: 85%"}
+            %h6
+              SOCIAL MEDIA INTEGRATION
+              %span 95%
+            .progress
+              .progress-bar.progress-bar-striped.active{:style => "width: 95%"}
+            %h6
+              API INTEGRATION
+              %span 70%
+            .progress
+              .progress-bar.progress-bar-striped.active{:style => "width: 70%"}
+            %h6
+              PAYMENT GATEWAY INTEGRATION
+              %span 50%
+            .progress
+              .progress-bar.progress-bar-striped.active{:style => "width: 50%"}
+            %h6
+              MySql
+              %span 70%
+            .progress
+              .progress-bar.progress-bar-striped.active{:style => "width: 70%"}
+          .clearfix
+    / //education
+    / portfolio
+    #projects.portfolio
+      .container
+        %h3.title.wow.zoomInLeft.animated{"data-wow-delay" => ".5s"} My Projects
+        .sap_tabs
+          #horizontalTab{:style => "display: block; width: 100%; margin: 0px;"}
+            %ul.resp-tabs-list.wow.fadeInUp.animated{"data-wow-delay" => ".7s"}
+              %li.resp-tab-item
+                %span All
+            .clearfix
+            .resp-tabs-container
+              .tab-1.resp-tab-content
+                .tab_img
+                  .col-md-4.portfolio-grids
+                    .grid
+                      %a.swipebox{:href => "assets/adzfone.png", :title => "Engage your custoers with a Mobile App."}
+                        %img.img-responsive{:alt => "", :src => "/assets/adzfone.png"}/
+                        .figcaption
+                          %h3 Adzfone
+                          %p
+                            New age of Marketing
+                  .col-md-4.portfolio-grids
+                    .grid.effect-sarah
+                      %a.swipebox{:href => "/assets/referral.jpg", :title => "Increase your customers with Referral Marketing"}
+                        %img.img-responsive{:alt => "", :src => "/assets/referral.jpg"}/
+                        .figcaption
+                          %h3
+                            Referral
+                            %span Manager
+                          %p
+                            Increase your customers with Referral Marketing.
+                  .col-md-4.portfolio-grids
+                    .grid
+                      %a.swipebox{:href => "assets/cemplay.png", :title => "This is Signle Sign On for Referral Manager, TRS, Contest and Sweepstakes."}
+                        %img.img-responsive{:alt => "", :src => "/assets/cemplay.png"}/
+                        .figcaption
+                          %h3 CEMPlay
+                          %p
+                            This is Signle Sign On for Referral Manager, TRS, Contest and Sweepstakes.
+                  .clearfix
+        :javascript
+          $(document).ready(function() {
+          	$('#horizontalTab').easyResponsiveTabs({
+          		type : 'default', //Types: default, vertical, accordion
+          		width : 'auto', //auto or any width like 600px
+          		fit : true // 100% fit in a container
+          	});
+          });
+        :javascript
+          jQuery(function($) {
+          	$(".swipebox").swipebox();
+          });
+    #contact.welcome.contact
+      .container
+        %h3.title Contact Me
+        .contact-row
+          %center>
+            %p
+              Call us :
+              %a{:href => "tel:+919028440783"} +91 9028440783
+            %p
+              E-mail :
+              %a{:href => "mailto:as.shirole10@gmail.com"} as.shirole10@gmail.com
+            %a.btn.btn-info.btn-sm{:href => "https://twitter.com/akshay_shirole7"}
+              %i.fa.fa-twitter.fa-fw
+              %span Twitter
+            %a.btn.btn-success.btn-sm{:href => "https://www.facebook.com/IAmAkshayShirole"}
+              %i.fa.fa-facebook.fa-fw
+              %span Facebook
+            %a.btn.btn-default.btn-sm{:href => "https://www.instagram.com/iakshirole/"}
+              %i.fa.fa-instagram.fa-fw
+              %span Instagram
+            %a.btn.btn-default.btn-sm{:href => "https://www.linkedin.com/in/akshay-shirole-700b70a5"}
+              %i.fa.fa-linkedin.fa-fw
+              %span LinkedIn
+            %a.btn.btn-primary.btn-sm{:href => "mailto:as.shirole10@gmail.com"}
+              %i.fa.fa-envelope.fa-fw
+              %span Mail
+          \&gt;
+      .footer
+        .container
+          %p
+            2016 My Resume. | Design by and for
+            %a{:href => "https://www.facebook.com/IAmAkshayShirole"} Akshay Shirole
+      :javascript
+        var Tawk_API = Tawk_API || {},
+            Tawk_LoadStart = new Date();
+        (function() {
+        	var s1 = document.createElement("script"),
+        	    s0 = document.getElementsByTagName("script")[0];
+        	s1.async = true;
+        	s1.src = 'https://embed.tawk.to/57c7c76a52bbe76938da9a7e/default';
+        	s1.charset = 'UTF-8';
+        	s1.setAttribute('crossorigin', '*');
+        	s0.parentNode.insertBefore(s1, s0);
+        })();
+      :javascript
+        $(document).ready(function() {
+
+        	var defaults = {
+        		containerID : 'toTop', // fading element id
+        		containerHoverID : 'toTopHover', // fading element hover id
+        		scrollSpeed : 1200,
+        		easingType : 'linear'
+        	};
+
+        	$().UItoTop({
+        		easingType : 'easeOutQuart'
+        	});
+
+        });
