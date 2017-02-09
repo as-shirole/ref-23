@@ -47,10 +47,10 @@ gem "twitter-bootstrap-rails"
 
 
 #gzip 
-gem 'heroku-deflater', :group => :production
-gem 'heroku_rails_deflate', :group => :production
+# gem 'heroku-deflater', :group => :production
+# gem 'heroku_rails_deflate', :group => :production
 #for compression
-gem 'rack-zippy'
+# gem 'rack-zippy'
 
 gem "font-awesome-rails"
 
