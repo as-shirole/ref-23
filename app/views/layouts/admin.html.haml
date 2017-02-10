@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title The Resume
+    = favicon_link_tag 'resume-icon.ico'
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %nav.navbar.navbar-inverse
+      .container-fluid
+        .navbar-header
+        %p.navbar-text.navbar-right
+          Signed in as
+          %a.navbar-link{:href => "#"} #{current_user.name}
+          = image_tag(current_user.omniauth_image, height: '10', width: '10')
+
+    = yield
