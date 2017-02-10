@@ -263,19 +263,22 @@
               %a{:href => "mailto:as.shirole10@gmail.com"} as.shirole10@gmail.com
             %a.btn.btn-info.btn-sm{:href => "https://twitter.com/akshay_shirole7"}
               %i.fa.fa-twitter.fa-fw
-              %span Twitter
+              %span View Twitter Profile
             %a.btn.btn-success.btn-sm{:href => "https://www.facebook.com/IAmAkshayShirole"}
               %i.fa.fa-facebook.fa-fw
-              %span Facebook
+              %span View Facebook Profile
             %a.btn.btn-default.btn-sm{:href => "https://www.instagram.com/iakshirole/"}
               %i.fa.fa-instagram.fa-fw
-              %span Instagram
+              %span View Instagram Profile
             %a.btn.btn-default.btn-sm{:href => "https://www.linkedin.com/in/akshay-shirole-700b70a5"}
               %i.fa.fa-linkedin.fa-fw
-              %span LinkedIn
+              %span View LinkedIn Profile
             %a.btn.btn-primary.btn-sm{:href => "mailto:as.shirole10@gmail.com"}
               %i.fa.fa-envelope.fa-fw
-              %span Mail
+              %span Write Us
+            = link_to user_google_oauth2_omniauth_authorize_path , class: "btn btn-danger btn-sm" do
+              %i.fa.fa-google
+              %span Connect with google
           \&gt;
       .footer
         .container
