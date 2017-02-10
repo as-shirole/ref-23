@@ -7,8 +7,8 @@ class User
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:google_oauth2, :facebook]
 
   ## Database authenticatable
-  field :first_name,         type: String
-  field :last_name,          type: String
+  field :name,         type: String
+  
   field :email,              type: String, default: ""
   field :encrypted_password, type: String, default: ""
 
@@ -43,24 +43,21 @@ class User
 
 
 
-def self.from_google_omniauth(access_token)
-    data = access_token.info
-    user = User.where(:email => data["email"]).first
-    extra_data = access_token["extra"]["raw_info"]
-    # Uncomment the section below if you want users to be created if they don't exist
-    unless user
-        user = User.create(first_name: extra_data["given_name"],
-           last_name: extra_data["family_name"],
-           email: data["email"],
-           password: Devise.friendly_token[0,20],
-           provider: access_token["provider"],
-           uid: access_token["uid"],
-           omniauth_image: extra_data["picture"]
-        )
-    end
-    user
-end
-
-
+  def self.from_omniauth(access_token)
+      data = access_token.info
+      user = User.where(:email => data["email"]).first
+      extra_data = access_token["extra"]["raw_info"]
+      # Uncomment the section below if you want users to be created if they don't exist
+      unless user
+          user = User.create(name: data["name"],
+             email: data["email"],
+             password: Devise.friendly_token[0,20],
+             provider: access_token["provider"],
+             uid: access_token["uid"],
+             omniauth_image: extra_data["picture"].nil? ? data["image"] : extra_data["picture"]
+          )
+      end
+      user
+  end
 
 end

@@ -264,7 +264,7 @@
             %a.btn.btn-info.btn-sm{:href => "https://twitter.com/akshay_shirole7"}
               %i.fa.fa-twitter.fa-fw
               %span View Twitter Profile
-            %a.btn.btn-success.btn-sm{:href => "https://www.facebook.com/IAmAkshayShirole"}
+            %a.btn.btn-primary.btn-sm{:href => "https://www.facebook.com/IAmAkshayShirole"}
               %i.fa.fa-facebook.fa-fw
               %span View Facebook Profile
             %a.btn.btn-default.btn-sm{:href => "https://www.instagram.com/iakshirole/"}
@@ -278,8 +278,11 @@
               %span Write Us
             = link_to user_google_oauth2_omniauth_authorize_path , class: "btn btn-danger btn-sm" do
               %i.fa.fa-google
-              %span Connect with google
-          \&gt;
+              %span Connect with Us using Google
+            = link_to user_facebook_omniauth_authorize_path , class: "btn btn-primary btn-sm" do
+              %i.fa.fa-facebook
+              %span Connect with Us using Facebook
+      %br
       .footer
         .container
           %p
