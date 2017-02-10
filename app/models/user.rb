@@ -41,6 +41,9 @@ class User
   # field :unlock_token,    type: String # Only if unlock strategy is :email or :both
   # field :locked_at,       type: 
 
+  #Associaltions
+  embeds_many :posts
+
 
 
   def self.from_omniauth(access_token)
