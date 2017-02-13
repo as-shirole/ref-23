@@ -1,4 +1,22 @@
-%h1
-  Welcome #{current_user.name}
-%center
-  = image_tag("welcome.gif", height: '30%', width: '55%')
+:javascript
+	window.onload = function() {
+	var startPos;
+	var geoSuccess = function(position) {
+		startPos = position;
+		document.getElementById('startLat').innerHTML = startPos.coords.latitude;
+		document.getElementById('startLon').innerHTML = startPos.coords.longitude;
+		$.ajax({
+			type: "POST",
+			url: "/home/store_locations",
+			data: { location: {latitude: startPos.coords.latitude, longitude: startPos.coords.longitude}},
+			success: function(data){alert("success");}
+			});
+			console.log("lattitude = "+ startPos.coords.latitude + "longitude ="+startPos.coords.longitude);
+			};
+		navigator.geolocation.getCurrentPosition(geoSuccess);
+	};
+
+#startLat
+#startLon
+%h3
+	Thank You, #{current_user.name} for your kind actions.
