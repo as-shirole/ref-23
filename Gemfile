@@ -50,7 +50,10 @@ gem "omniauth-google-oauth2"
 
 gem "mongoid-paperclip"
 
-gem 'geocoder'
+gem 'geocoder', git: "git://github.com/alexreisner/geocoder.git"
+
+gem 'httparty'
+
 
 group :production do
   gem 'rails_12factor'

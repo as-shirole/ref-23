@@ -67,4 +67,12 @@ class User
       user
   end
 
+  def current_location
+    return nil if self.locations.empty? 
+    self.locations.where(default: true).last
+  end
+
+  def collect_places
+    return {} if self.current_location.nil?
+  end
 end

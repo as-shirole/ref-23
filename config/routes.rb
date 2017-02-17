@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   	collection do
   		get :welcome
       post :store_locations
+      get :check_out_places
+      post :push_places
   	end
   end
 end
