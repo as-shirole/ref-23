@@ -14,6 +14,7 @@ class HomeController < ApplicationController
 
 
     def check_out_places
-      @hotels = HTTParty.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{current_user.current_location.to_lat_long}&radius=500&key=#{ENV['GOOGLE_CLIENT_KEY']}")
+      hotels = HTTParty.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{current_user.current_location.to_lat_long}&keyword=hotels&radius=500&key=#{ENV['GOOGLE_CLIENT_KEY']}")
+      @hotels = hotels["results"]
     end
 end

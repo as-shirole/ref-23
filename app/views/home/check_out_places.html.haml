@@ -1,1 +1,23 @@
-.row
+%h3
+	Good #{time_of_day(Time.now.hour).first}, 
+	%em.text-success #{current_user.name}
+%br
+
+.head
+	Are you looking for #{time_of_day(Time.now.hour).last}..?
+	%br
+	.text-danger
+		We got someplace for you 
+		%span.fa.fa-smile-o 
+- @hotels.each do |hotel|
+	.panel.panel-default
+		.panel-heading
+			%h4 #{hotel["name"]}
+		.panel-body
+			.col-xs-6
+				Address: #{hotel["vicinity"]}
+				Open Now: #{open_now(hotel["open_now"])}
+			.col-xs-6
+				= image_tag("https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{hotel["photos"].last["photo_reference"]}&key=#{ENV['GOOGLE_CLIENT_KEY']}", class: "img-responsive img-thumbnail text-right", style: "width:114px;height:auto;float:right;") unless hotel["photos"].nil?
+			
+			
