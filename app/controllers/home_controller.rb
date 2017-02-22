@@ -6,7 +6,7 @@ class HomeController < ApplicationController
 
     def welcome
       result = request.location
-      p "================================#{request.location}================================="
+      p "================================#{request.location.inspect}================================="
     end
 
     def store_locations
