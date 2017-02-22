@@ -5,6 +5,8 @@ class HomeController < ApplicationController
     end
 
     def welcome
+      result = request.location
+      p "================================#{request.location.address}================================="
     end
 
     def store_locations
