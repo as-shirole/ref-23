@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<div id="output" class="<%=@message.id.to_s%>">
+  
+</div>
+
+
+<div id="final">
+</div>
+
+<p>
+  <strong>Content:</strong>
+  <%= @message.content %>
+</p>
+
+<%= link_to 'Edit', edit_message_path(@message) %> |
+<%= link_to 'Back', messages_path %>
+
+
+<form>
+  <label>Say Something</label>
+  <br>
+  <input type="text" name="" data-behavior= "room_speaker">
+  <input type="hidden" id="message_id" value="<%=@message.id.to_s%>">
+</form>
