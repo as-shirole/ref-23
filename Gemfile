@@ -54,6 +54,7 @@ gem 'geocoder', git: "git://github.com/alexreisner/geocoder.git"
 
 gem 'httparty'
 
+gem 'redis', '~>3.2'
 
 group :production do
   gem 'rails_12factor'
