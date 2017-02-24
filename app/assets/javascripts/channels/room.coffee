@@ -10,7 +10,7 @@ $(document).on 'ready', () ->
 
 	  received: (data) ->
 	  	# alert("kksdlk")
-	  	$("#messages").append("<p>"+ data['message']+ "</p>")
+	  	$("#messages").append(data['message'])
 	  	# alert data['message']
 	    # Called when there's incoming data on the websocket for this channel
 
