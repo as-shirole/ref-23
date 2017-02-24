@@ -7,13 +7,13 @@ class PostsController < ApplicationController
   # GET /posts.
   before_filter :authenticate_user!
   def index
-    @posts = current_user.posts
+    @posts = Post.all
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @post = current_user.posts.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   # GET /posts/new
@@ -23,13 +23,13 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
-    @post = current_user.posts.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   # POST /posts
   # POST /posts.json
   def create
-    @post = current_user.posts.new(post_params)
+    @post = Post.new(post_params)
 
     respond_to do |format|
       if @post.save
@@ -69,7 +69,7 @@ class PostsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
-      @post = current_user.posts.find(params[:id])
+      @post = Post.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

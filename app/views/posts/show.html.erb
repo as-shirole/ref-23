@@ -1,4 +1,6 @@
 <p id="notice"><%= notice %></p>
+<div id="post_id" class="<%=@post.id.to_s%>"></div>
+<div id="user_id" class="<%=current_user.id.to_s%>"></div>
 
 <p>
   <strong>Name:</strong>
@@ -9,6 +11,28 @@
   <strong>Content:</strong>
   <%= @post.content %>
 </p>
+
+<div id="created_by">
+	This post was created by <%= @post.user.name%>
+</div>
+
+<form>
+  <label>Write your comment here</label>
+  <br>
+  <input type="text" data-behavior= "room_speaker" required="true">
+</form>
+
+<div id="messages">
+	<%@post.messages.each do |comment|%>
+		<%= comment.content%> 
+		<br>
+		<i style="font-weight: 100;">
+			&nbsp; &nbsp; &nbsp;By &nbsp; : <%= comment.user.name%>
+		</i>
+		<br>
+	<%end%>
+</div>
+
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>

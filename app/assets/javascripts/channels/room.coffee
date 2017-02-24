@@ -1,25 +1,28 @@
 $(document).on 'ready', () ->
-	id = $("#output").attr("class")
-	App.room = App.cable.subscriptions.create { channel: "RoomChannel", message: id},
+	post_id = $("#post_id").attr("class")
+	App.room = App.cable.subscriptions.create { channel: "RoomChannel", post_id: post_id},
+
 	  connected: (data) ->
-	  	
 	    # Called when the subscription is ready for use on the server
 
 	  disconnected: ->
 	    # Called when the subscription has been terminated by the server
 
 	  received: (data) ->
-	  	alert("kksdlk")
-	  	$("#final").append("<p>"+ data['message']+ "</p>")
+	  	# alert("kksdlk")
+	  	$("#messages").append("<p>"+ data['message']+ "</p>")
 	  	# alert data['message']
 	    # Called when there's incoming data on the websocket for this channel
 
-	  speak: (message, id)->
-	    @perform 'speak', message: message, room_id: id
+	  speak: (message, post_id, user_id)->
+	    @perform 'speak', message: message, post_id: post_id, user_id: user_id
 	$(document).on 'keypress', '[data-behavior~=room_speaker]', (event) ->
 		if event.keyCode is 13
-			id = $("#output").attr("class")
-			alert(id)
-			App.room.speak event.target.value , id
-			event.target.value = ''
-			event.preventDefault()
+			if event.target.value == "" || event.target.value == " "
+				alert("Please enter valid comment")
+			else
+				post_id = $("#post_id").attr("class")
+				user_id = $("#user_id").attr("class")
+				App.room.speak event.target.value, post_id, user_id
+				event.target.value = ''
+				event.preventDefault()

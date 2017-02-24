@@ -1,9 +1,10 @@
 class MessageBroadcastJob < ApplicationJob
   queue_as :default
 
-  def perform(message_id)
-  	message = Message.find(message_id)
-    ActionCable.server.broadcast "room_channel_#{message.id.to_s}", message: render_message(message)
+  def perform(post_id, message_id)
+  	post = Post.find(post_id)
+  	message = post.messages.find(message_id)
+    ActionCable.server.broadcast "room_channel_#{post.id.to_s}", message: render_message(message)
   end
 
   private

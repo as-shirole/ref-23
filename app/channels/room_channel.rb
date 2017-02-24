@@ -1,6 +1,6 @@
 class RoomChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "room_channel_#{params['message']}"
+    stream_from "room_channel_#{params['post_id']}"
   end
 
   def unsubscribed
@@ -8,9 +8,7 @@ class RoomChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-  	p "=============#{data['room_id']}================"
-  	Message.create!(content: data['message'])
-  	room_id = data['room_id']
-  	ActionCable.server.broadcast "room_channel_#{room_id}", message: data['message']
+  	post = Post.find(data['post_id'])
+  	post.messages.create!(content: data['message'], by: data['user_id'])
   end
 end

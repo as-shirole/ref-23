@@ -6,7 +6,9 @@ class Post
 
   field :name, type: String
   field :content, type: String
+  field :user_id, type: String
   
   #Associations
-  embedded_in :user
+  belongs_to :user
+  embeds_many :messages, cascade_callbacks: true
 end

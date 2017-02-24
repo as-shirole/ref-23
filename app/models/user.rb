@@ -45,7 +45,8 @@ class User
   # field :locked_at,       type: 
 
   #Associaltions
-  embeds_many :posts
+  has_many :posts
+  # has_many :messages
   embeds_many :locations, cascade_callbacks: true
 
 

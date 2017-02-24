@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :messages
   resources :posts
   root to: "home#index"
 
@@ -13,4 +14,6 @@ Rails.application.routes.draw do
       post :push_places
   	end
   end
+
+  mount ActionCable.server => '/cable'
 end
