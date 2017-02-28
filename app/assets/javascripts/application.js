@@ -29,6 +29,7 @@ $('a[href*="#"]:not([href="#"])').click(function() {
       }
     }
   });
+
       // $(".intro-header").vegas({
 	// delay: 5000,
     // slides: [
