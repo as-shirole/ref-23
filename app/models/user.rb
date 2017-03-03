@@ -76,4 +76,49 @@ class User
   def collect_places
     return {} if self.current_location.nil?
   end
+
+  def self.public_key
+    "BJuccfOaFcYTVlAZgoMC1CzZPb1723fPUj6HkKYnIqxkO3ZMC7QosX6-uuNipOvjsvHajDWzfLPhcO0a_FohrYc="
+    # ENV.fetch('VAPID_PUBLIC_KEY')
+  end
+
+  def self.public_key_bytes
+    Base64.urlsafe_decode64(public_key).bytes
+  end
+
+  def self.private_key
+    "SLLIX7KIK4ZpSwuxXNdpISZwEGY74TnbjI4fil4GoKw="
+    # ENV.fetch('VAPID_PRIVATE_KEY')
+  end
+
+  def broacast_message
+    p "called"
+    ActionCable.server.broadcast "web_notifications_#{self.id}", { title: 'New things!', body: 'All the news that is fit to print' }
+  end
+
+  def self.send_notification(message, endpoint: "", p256dh: "", auth: "")
+    raise ArgumentError, ":endpoint param is required" if endpoint.blank?
+    raise ArgumentError, "subscription :keys are missing" if p256dh.blank? || auth.blank?
+
+    Rails.logger.info("Sending WebPush notification...............")
+    Rails.logger.info("message: #{message}")
+    Rails.logger.info("endpoint: #{endpoint}")
+    Rails.logger.info("p256dh: #{p256dh}")
+    Rails.logger.info("auth: #{auth}")
+
+    Webpush.payload_send \
+      message: message,
+      endpoint: endpoint,
+      p256dh: p256dh,
+      auth: auth,
+      vapid: {
+        subject: "mailto:ross@rossta.net",
+        public_key: public_key,
+        private_key: private_key
+      }
+  end
+
+
+
+
 end

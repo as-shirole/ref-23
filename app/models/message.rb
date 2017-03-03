@@ -7,7 +7,17 @@ class Message
   field :by , type: String
 
 
-  embedded_in :post
+  embedded_in :chat_room
   belongs_to :user, foreign_key: :by
-  after_create {MessageBroadcastJob.perform_later self.post.id.to_s, self.id.to_s}
+  after_create {MessageBroadcastJob.perform_later self.chat_room.id.to_s, self.id.to_s}
+
+
+  def is_my_msg(user)
+  	if user.id == self.by
+  		"right"
+  	else
+  		"left"
+  	end
+
+  end
 end

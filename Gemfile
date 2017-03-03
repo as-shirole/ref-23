@@ -38,6 +38,8 @@ gem 'devise'
 
 gem 'sprockets', '3.6.3'
 
+gem 'jquery-turbolinks'
+
 gem 'select2-rails'
 gem 'figaro'
 gem 'bootstrap-sass'
@@ -47,13 +49,15 @@ gem "twitter-bootstrap-rails"
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem "omniauth-google-oauth2"
-
+gem 'react-rails'
+gem "browserify-rails"
 gem "mongoid-paperclip"
 
 gem 'geocoder', git: "git://github.com/alexreisner/geocoder.git"
 
 gem 'httparty'
-
+gem "webpush", github: "rossta/webpush", branch: "master"
+gem 'serviceworker-rails'
 # gem 'redis', '~>3.2'
 
 group :production do

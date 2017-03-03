@@ -12,8 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery
+//= require jquery.turbolinks
 //= require turbolinks
+//= require react
+//= require react_ujs
+//= require serviceworker-companion
+//= require components
 //= require_tree .
 
 $(document).ready(function() {

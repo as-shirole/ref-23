@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :chat_rooms
   resources :messages
   resources :posts
   root to: "home#index"
@@ -15,5 +16,6 @@ Rails.application.routes.draw do
   	end
   end
 
+  post "/push" => "home#notification"
   mount ActionCable.server => '/cable'
 end

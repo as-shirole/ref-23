@@ -6,26 +6,19 @@
     = favicon_link_tag 'resume-icon.ico'
     = csrf_meta_tags
     = action_cable_meta_tag
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %link{:href => "/manifest.json", :rel => "manifest"}/
+    %meta{:content => "yes", :name => "apple-mobile-web-app-capable"}/
+    = stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'admin', 'data-turbolinks-track': 'reload'
     :javascript
-      var clevertap = {event:[], profile:[], account:[], onUserLogin:[], notifications:[]};
-       // replace with the CLEVERTAP_ACCOUNT_ID with the actual ACCOUNT ID value from your Dashboard -> Settings page
-       clevertap.account.push({"id": "CLEVERTAP_ACCOUNT_ID"});
-       (function () {
-           var wzrk = document.createElement('script');
-           wzrk.type = 'text/javascript';
-           wzrk.async = true;
-           wzrk.src = ('https:' == document.location.protocol ? 'https://d2r1yp2w7bby2u.cloudfront.net' : 'http://static.clevertap.com') + '/js/a.js';
-           var s = document.getElementsByTagName('script')[0];
-           s.parentNode.insertBefore(wzrk, s);
-        })();
+      var publicKey = new Uint8Array(#{User.public_key_bytes});
 
   %body
     %nav.navbar.navbar-inverse
       .container-fluid
         .navbar-header
         %p.navbar-text.navbar-right
+        %p#public_key{:class=>""}
           Signed in as
           %a.navbar-link{:href => "#"} #{current_user.name}
           = image_tag(current_user.omniauth_image, height: '30', width: '30') unless current_user.omniauth_image.nil?

@@ -1,6 +1,7 @@
 class RoomChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "room_channel_#{params['post_id']}"
+    p "===============#{current_user.inspect}==================="
+    stream_from "room_channel_#{params['chat_room_id']}"
   end
 
   def unsubscribed
@@ -8,7 +9,12 @@ class RoomChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-  	post = Post.find(data['post_id'])
-  	post.messages.create!(content: data['message'], by: data['user_id'])
+  	chat_room = ChatRoom.find(data['chat_room_id'])
+  	chat_room.messages.create!(content: data['message'], by: data['user_id'])
   end
+
+  def away
+
+  end
+  
 end

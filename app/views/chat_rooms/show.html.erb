@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+<div id="chat_room_id" class="<%=@chat_room.id.to_s%>"></div>
+<div id="user_id" class="<%=current_user.id.to_s%>"></div>
+
+<p>
+  <strong>Name:</strong>
+  <%= @chat_room.name %>
+</p>
+
+<p>
+  <strong>Desc:</strong>
+  <%= @chat_room.desc %>
+</p>
+
+<form>
+  <label>Write your comment here</label>
+  <br>
+  <input type="text" data-behavior= "room_speaker" required="true">
+</form>
+<div class="col-xs-12">
+	<div class="row">
+		<div id="messages">
+			
+				<%@chat_room.messages.each do |comment|%>
+					<div class="message" style="float:<%=comment.is_my_msg(current_user)%>;width:80%;">
+						<%= comment.content%> 
+						<br>
+						<i style="font-weight: 100;">
+							&nbsp; &nbsp; &nbsp;By &nbsp; : <%= comment.user.name%>
+						</i>
+						<br>
+					</div>
+
+			<%end%>
+		</div>
+	</div>
+</div>
+
+<div class="actions">
+	<%= link_to 'Edit', edit_chat_room_path(@chat_room) %> |
+	<%= link_to 'Back', chat_rooms_path %>
+	
+</div>
