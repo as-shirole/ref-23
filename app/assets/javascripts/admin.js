@@ -48,10 +48,10 @@ function setup(onSubscribed) {
 }
 
 function subscribe(onSubscribed) {
-  navigator.serviceWorker.ready.then((serviceWorkerRegistration) => {
+  navigator.serviceWorker.ready.then(function(serviceWorkerRegistration) {
     const pushManager = serviceWorkerRegistration.pushManager
     pushManager.getSubscription()
-    .then((subscription) => {
+    .then(function(subscription) {
       if (subscription) {
         refreshSubscription(pushManager, subscription, onSubscribed);
       } else {
@@ -63,7 +63,7 @@ function subscribe(onSubscribed) {
 
 function refreshSubscription(pushManager, subscription, onSubscribed) {
   console.log('Refreshing subscription');
-  return subscription.unsubscribe().then((bool) => {
+  return subscription.unsubscribe().then(function(bool) {
     pushManagerSubscribe(pushManager);
   });
 }
@@ -75,8 +75,8 @@ function pushManagerSubscribe(pushManager, onSubscribed) {
     applicationServerKey: window.publicKey
   })
   .then(onSubscribed)
-  .then(() => { console.log('Subcribing finished: success!')})
-  .catch((e) => {
+  .then(function() { console.log('Subcribing finished: success!')})
+  .catch(function(e) {
     if (Notification.permission === 'denied') {
       console.log('Permission to send notifications denied');
     } else {
@@ -91,29 +91,29 @@ function logSubscription(subscription) {
 
 function getSubscription() {
   return navigator.serviceWorker.ready
-  .then((serviceWorkerRegistration) => {
+  .then(function(serviceWorkerRegistration) {
     return serviceWorkerRegistration.pushManager.getSubscription()
-    .catch((error) => {
+    .catch(function(error) {
       console.log('Error during getSubscription()', error);
     });
   });
 }
 
 function sendNotification() {
-  getSubscription().then((subscription) => {
+  getSubscription().then(function(subscription) {
     return fetch("/push", {
       headers: formHeaders(),
       method: 'POST',
       credentials: 'include',
       body: JSON.stringify({ subscription: subscription.toJSON() })
-    }).then((response) => {
+    }).then(function(response) {
       console.log("Push response", response);
       if (response.status >= 500) {
         console.error(response.statusText);
         alert("Sorry, there was a problem sending the notification. Try resubscribing to push messages and resending.");
       }
     })
-    .catch((e) => {
+    .catch(function(e) {
       console.error("Error sending notification", e);
     });
   })
