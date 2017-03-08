@@ -14,14 +14,14 @@
 $(document).ready(function(){
 	// alert("skjdjks" + window.PushManager);
   // alert(document.cookie);
-	setup(logSubscription);
-  $("#package_button").click(function(){
-    sendNotification();
-  });
-
-
-
-
+  token_id = $("#token_id").attr("class");
+  if (token_id == "")
+  {
+    setup(logSubscription);
+    $("#package_button").click(function(){
+      sendNotification();
+    });
+  }
 });
 
 function setup(onSubscribed) {
