@@ -14,6 +14,7 @@
       var publicKey = new Uint8Array(#{User.public_key_bytes});
 
   %body
+    #token_id{:class => "#{cookies.signed[:token_id]}"}
     %nav.navbar.navbar-inverse
       .container-fluid
         .navbar-header

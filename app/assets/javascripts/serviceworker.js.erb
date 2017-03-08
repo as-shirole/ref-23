@@ -59,12 +59,13 @@ function onFetch(event) {
 
 
 function onPush(event) {
-  var title = (event.data && event.data.text()) || "Yay a message";
+  // var title = (event.data && event.data.text()) || "Yay a message";
+  var json = event.data.json();
   event.waitUntil(
-    self.registration.showNotification(title, {
-      body: "We have received a push message",
-      icon: "assets/move-up.png",
-      tag:  "push-simple-demo-notification-tag"
+    self.registration.showNotification(json.title, {
+    body: json.body,
+    icon: json.icon,
+    tag: json.tag
     })
   );
 }

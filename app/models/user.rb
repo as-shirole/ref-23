@@ -21,7 +21,6 @@ class User
 
   ## Rememberable
   field :remember_created_at, type: Time
-
   ## Trackable
   field :sign_in_count,      type: Integer, default: 0
   field :current_sign_in_at, type: Time
@@ -48,6 +47,7 @@ class User
   has_many :posts
   # has_many :messages
   embeds_many :locations, cascade_callbacks: true
+  has_many :tokens
 
 
 

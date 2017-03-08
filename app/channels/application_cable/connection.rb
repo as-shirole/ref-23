@@ -5,7 +5,7 @@ module ApplicationCable
  
     def connect
     	p "===cookies======#{cookies.class}======="
-      self.current_user = find_verified_user
+      # self.current_user = find_verified_user
       p "=========#{self.current_user}======="
     end
  
@@ -20,3 +20,5 @@ module ApplicationCable
 
   end
 end
+
+

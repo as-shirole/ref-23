@@ -13,11 +13,15 @@
 
 $(document).ready(function(){
 	// alert("skjdjks" + window.PushManager);
-  
+  // alert(document.cookie);
 	setup(logSubscription);
   $("#package_button").click(function(){
     sendNotification();
   });
+
+
+
+
 });
 
 function setup(onSubscribed) {
@@ -36,6 +40,7 @@ function setup(onSubscribed) {
     Notification.requestPermission(function (permission) {
       // If the user accepts, let's create a notification
       if (permission === "granted") {
+
         console.log('Permission to receive notifications granted!');
         subscribe(onSubscribed);
       }
@@ -53,6 +58,7 @@ function subscribe(onSubscribed) {
     pushManager.getSubscription()
     .then(function(subscription) {
       if (subscription) {
+        // alert(subscription.toJSON());
         refreshSubscription(pushManager, subscription, onSubscribed);
       } else {
         pushManagerSubscribe(pushManager, onSubscribed);
@@ -87,6 +93,15 @@ function pushManagerSubscribe(pushManager, onSubscribed) {
 
 function logSubscription(subscription) {
   console.log("Current subscription", subscription.toJSON());
+  $.ajax({
+    type:'POST', 
+    url: '/tokens', 
+    data: { subscription: subscription.toJSON() } ,
+    success: function(data){
+    var r = $.parseJSON(data);
+    console.log(r);
+    //$("#token").val(data["token_id"]);
+  }});
 }
 
 function getSubscription() {

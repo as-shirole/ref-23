@@ -24,7 +24,13 @@ class HomeController < ApplicationController
     def notification
       Rails.logger.info "Sending push notification from #{push_params.inspect}"
     subscription_params = fetch_subscription_params
-
+    
+    token = Token.new
+    token.web_token = subscription_params[:endpoint]
+    token.p256dh = subscription_params.dig(:keys, :p256dh)
+    token.auth = subscription_params.dig(:keys, :auth)
+    p "============================"
+    p token.save!
     User.send_notification fetch_message,
       endpoint: subscription_params[:endpoint],
       p256dh: subscription_params.dig(:keys, :p256dh),

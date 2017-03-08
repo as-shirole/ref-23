@@ -3,7 +3,7 @@ class Location
   
   field :coordinates, :type => Array
   field :address, type: String
-	field :default, type: Boolean
+  field :default, type: Boolean
   
   embedded_in :user
 	
