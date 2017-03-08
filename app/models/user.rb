@@ -96,29 +96,14 @@ class User
     ActionCable.server.broadcast "web_notifications_#{self.id}", { title: 'New things!', body: 'All the news that is fit to print' }
   end
 
-  def self.send_notification(message, endpoint: "", p256dh: "", auth: "")
-    raise ArgumentError, ":endpoint param is required" if endpoint.blank?
-    raise ArgumentError, "subscription :keys are missing" if p256dh.blank? || auth.blank?
-
-    Rails.logger.info("Sending WebPush notification...............")
-    Rails.logger.info("message: #{message}")
-    Rails.logger.info("endpoint: #{endpoint}")
-    Rails.logger.info("p256dh: #{p256dh}")
-    Rails.logger.info("auth: #{auth}")
-
-    Webpush.payload_send \
-      message: message,
-      endpoint: endpoint,
-      p256dh: p256dh,
-      auth: auth,
-      vapid: {
-        subject: "mailto:ross@rossta.net",
-        public_key: public_key,
-        private_key: private_key
-      }
+  def personal_message(message)
+    self.tokens.each do |token| 
+      p "sending push notification"
+      message = {title: message, body: "This is welcome notification sent by https://the-resume.herokuapp.com", 
+                 icon: "assets/move-up.png", tag: "welcome-mesage"}
+      Webpush.payload_send( message: message.to_json, endpoint: token.web_token, p256dh: token.p256dh, auth: token.auth,
+        vapid: { subject: "mailto:ross@rossta.net", public_key: ENV['WEB_PUSH_PUBLIC_KEY'], private_key: ENV['WEB_PUSH_PRIVATE_KEY'] })
+      p "after sending push notification"
+    end
   end
-
-
-
-
 end

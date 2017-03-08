@@ -7,7 +7,7 @@ class Token
   field :p256dh, type: String
   field :last_messsage_sent_at, type: Date, default: ->{ Date.today }
 
-  # belongs_to :user
+  belongs_to :user
   after_create :send_web_notification
 
 
