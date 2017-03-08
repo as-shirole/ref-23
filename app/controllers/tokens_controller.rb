@@ -32,11 +32,13 @@ class TokensController < ApplicationController
         token.p256dh = subscription_params.dig(:keys, :p256dh)
         token.auth = subscription_params.dig(:keys, :auth)
         token.last_messsage_sent_at = Date.today
+        token.user_id = current_user.id.to_s unless current_user.nil?
         token.save!
         cookies.signed[:token_id] = token.id.to_s
         # render status: 204, nothing: true and return
       else
         token = token.last
+        token.user_id = current_user.id.to_s unless current_user.nil?
         token.existing_record_message
         cookies.signed[:token_id] = token.last.id.to_s
         # render status: 204, nothing: true and return
