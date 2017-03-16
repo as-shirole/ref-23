@@ -25,6 +25,13 @@ class TokensController < ApplicationController
   # POST /tokens.json
   def create
     subscription_params = params[:subscription]
+    if !current_user.nil?
+      user = current_user
+    elsif !cookies.signed[:user_id].nil?
+      user = User.find(cookies.signed[:user_id])
+    else
+      user = User.first
+    end
     token = Token.where(web_token: subscription_params[:endpoint])
       if token.empty?
         token = Token.new
@@ -32,13 +39,13 @@ class TokensController < ApplicationController
         token.p256dh = subscription_params.dig(:keys, :p256dh)
         token.auth = subscription_params.dig(:keys, :auth)
         token.last_messsage_sent_at = Date.today
-        token.user_id = current_user.id.to_s unless current_user.nil?
+        token.user_id = user.id.to_s
         token.save!
         cookies.signed[:token_id] = token.id.to_s
         # render status: 204, nothing: true and return
       else
         token = token.last
-        token.user_id = current_user.id.to_s unless current_user.nil?
+        token.user_id = user.id.to_s
         token.existing_record_message
         cookies.signed[:token_id] = token.last.id.to_s
         # render status: 204, nothing: true and return

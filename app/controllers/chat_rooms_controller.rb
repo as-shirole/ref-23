@@ -1,8 +1,10 @@
 class ChatRoomsController < ApplicationController
+  
   before_action :set_chat_room, only: [:show, :edit, :update, :destroy]
-  # layout 'admin'
+  layout 'admin'
   # GET /chat_rooms
   # GET /chat_rooms.json
+  before_filter :authenticate_user!
   def index
     @chat_rooms = ChatRoom.all
   end

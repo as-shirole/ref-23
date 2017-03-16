@@ -13,16 +13,17 @@ class Token
 
 
   def send_web_notification()
-    p "sending push notification"
     message = {title: "Welcome. Thanks for stopping by.", body: "This is welcome notification sent by https://the-resume.herokuapp.com", 
-               icon: "assets/move-up.png", tag: "welcome-mesage"}
+               icon: "assets/move-up.png", tag: "http://127.0.0.1:5000#contact", targetUrl: "http://www.google.com"}
   	Webpush.payload_send( message: message.to_json, endpoint: self.web_token, p256dh: self.p256dh, auth: self.auth,
       vapid: { subject: "mailto:ross@rossta.net", public_key: ENV['WEB_PUSH_PUBLIC_KEY'], private_key: ENV['WEB_PUSH_PRIVATE_KEY'] })
-    p "after sending push notification"
   end
 
   def existing_record_message
-    p "===================="
+    # message = {title: "Welcome Back", body: "Thanks for coming back. Enjoy our private chat functionality", 
+    #            icon: "assets/move-up.png", tag: "http://127.0.0.1:5000#contact", targetUrl: "http://www.google.com"}
+    # Webpush.payload_send( message: message.to_json, endpoint: self.web_token, p256dh: self.p256dh, auth: self.auth,
+    #   vapid: { subject: "mailto:ross@rossta.net", public_key: ENV['WEB_PUSH_PUBLIC_KEY'], private_key: ENV['WEB_PUSH_PRIVATE_KEY'] })
   end
 
 
