@@ -14,7 +14,7 @@ class Token
 
   def send_web_notification()
     message = {title: "Welcome. Thanks for stopping by.", body: "Click here to keep in touch", 
-               icon: "assets/move-up.png", tag: "http://127.0.0.1:5000#contact", targetUrl: "http://www.google.com"}
+               icon: "assets/move-up.png", tag: "#{ENV['SERVER_ADDRESS']}#contact", targetUrl: "http://www.google.com"}
   	Webpush.payload_send( message: message.to_json, endpoint: self.web_token, p256dh: self.p256dh, auth: self.auth,
       vapid: { subject: "mailto:ross@rossta.net", public_key: ENV['WEB_PUSH_PUBLIC_KEY'], private_key: ENV['WEB_PUSH_PRIVATE_KEY'] })
   end
