@@ -10,8 +10,8 @@ $(document).on 'turbolinks:load', () ->
         # Called when the subscription has been terminated by the server
 
       received: (data) ->
-        alert("skjskjs")
-        alert("kksdlk"+data['message'])
+        # alert("skjskjs")
+        # alert("kksdlk"+data['message'])
         $("#messages").append(data['message'])
         # alert data['message']
         # Called when there's incoming data on the websocket for this channel

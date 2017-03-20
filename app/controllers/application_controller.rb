@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
 			token.user_id = current_user.id
 			token.save
 		end
+    current_user.first_notification
     chat_rooms_path
   end
 end

@@ -5,7 +5,9 @@ module ApplicationCable
  
     def connect
     	p "===cookies======#{cookies.class}======="
-      # self.current_user = find_verified_user
+      unless cookies.signed[:user_id].nil?
+        self.current_user = find_verified_user
+      end
       p "=========#{self.current_user}======="
     end
  

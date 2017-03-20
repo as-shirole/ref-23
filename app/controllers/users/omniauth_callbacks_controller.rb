@@ -7,6 +7,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         token.user_id = @user.id
         token.save
       end
+      @user.first_notification
       redirect_to chat_rooms_path
   end
 
@@ -18,6 +19,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       token.user_id = @user.id
       token.save
     end
+    @user.first_notification
     redirect_to chat_rooms_path
   end
 end
