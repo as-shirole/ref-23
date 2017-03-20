@@ -112,7 +112,7 @@ class User
     return true if self.tokens.empty?
     self.tokens.each do |token| 
       p "sending push notification"
-      message = {title: "Thanks for Signing up/in. We're happy to serve you.", body: "This is welcome notification sent by https://the-resume.herokuapp.com", 
+      message = {title: "Dear #{self.name}, Thanks for Signing up/in. We're happy to serve you.", body: "This is welcome notification sent by https://the-resume.herokuapp.com", 
                  icon: "assets/move-up.png", tag: "#{ENV['SERVER_ADDRESS']}/chat_rooms"}
       Webpush.payload_send( message: message.to_json, endpoint: token.web_token, p256dh: token.p256dh, auth: token.auth,
         vapid: { subject: "mailto:ross@rossta.net", public_key: ENV['WEB_PUSH_PUBLIC_KEY'], private_key: ENV['WEB_PUSH_PRIVATE_KEY'] })
