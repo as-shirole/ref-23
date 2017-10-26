@@ -50,6 +50,13 @@ gem "twitter-bootstrap-rails"
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem "omniauth-google-oauth2"
+
+gem 'oauth2'
+
+gem "google-api-client"
+
+
+
 gem 'react-rails'
 gem "browserify-rails"
 gem "mongoid-paperclip"
