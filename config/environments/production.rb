@@ -26,9 +26,9 @@ Rails.application.configure do
   config.assets.compile = true
 
   
-  config.web_socket_server_url = "wss://the-resume.herokuapp.com/cable" 
+  config.web_socket_server_url = "ws://the-resume.herokuapp.com/cable" 
 
-  config.action_cable.allowed_request_origins = ['https://the-resume.herokuapp.com', 'http://the-resume.herokuapp.com']
+  config.action_cable.allowed_request_origins = ['https://the-resume.herokuapp.com', 'http://the-resume.herokuapp.com', 'the-resume.herokuapp.com']
 
   # config.active_record.dump_schema_after_migration = false
 
