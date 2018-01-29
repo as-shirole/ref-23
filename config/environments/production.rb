@@ -24,6 +24,7 @@ Rails.application.configure do
   config.serve_static_assets = true
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = true
+  config.gem 'sitemap_generator'
 
   
   config.web_socket_server_url = "ws://the-resume.herokuapp.com/cable" 
