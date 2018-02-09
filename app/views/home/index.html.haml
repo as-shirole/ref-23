@@ -15,6 +15,8 @@
         }
     %link{:href => "/assets/style.css", :media => "all", :rel => "stylesheet", :type => "text/css"}/
     %link{:href => "assets/swipebox.css", :rel => "stylesheet"}/
+    %script{src: "https://github.com/sachinchoolur/lightslider/blob/master/src/js/lightslider.js"}
+    
     :javascript
       jQuery(document).ready(function($) {
       	$(".scroll").click(function(event) {
@@ -105,13 +107,23 @@
           .clearfix
         .work-info
           .col-md-6.work-right.work-right2
-            %h4 19th October 2016 - Till Date
+            %h4 19th October 2016 - 9th May 2017
           .col-md-6.work-left.work-left2
             %h5
               EncureIT Systems Pvt. Ltd &nbsp; &nbsp; &nbsp;
               %span.glyphicon.glyphicon-briefcase
             %p
-              Currently working with EncureIT Systems Pvt. Ltd as a Ruby on Rails Developer.
+              Worked with EncureIT Systems Pvt. Ltd as a Ruby on Rails Developer for client Redbytes Softeware Private Limited.
+          .clearfix
+        .work-info
+          .col-md-6.work-right.work-right2
+            %h4 10th May 2017 - Till Date
+          .col-md-6.work-left.work-left2
+            %h5
+              Redbytes Software Pvt. Ltd &nbsp; &nbsp; &nbsp;
+              %span.glyphicon.glyphicon-briefcase
+            %p
+              Currently working with Redbytes Software Pvt. Ltd as a Ruby on Rails Developer.
           .clearfix
     / //work-experience
     / education
@@ -136,7 +148,7 @@
               MSBTE &nbsp; &nbsp; &nbsp;
               %span.glyphicon.glyphicon-education
             %p
-              Finished Diploma in Computer Engineering with Distinction from Maharastra Board of Technical Education
+              Completed Diploma in Computer Engineering with Distinction from Maharastra Board of Technical Education
           .clearfix
         .work-info
           .col-md-6.work-left
@@ -155,59 +167,54 @@
         %h3.title Skills
         .skills-info
           .col-md-6.bar-grids
-            %h6
-              RAILS
-              %span 80%
-            .progress
-              .progress-bar.progress-bar-striped.active{:style => "width: 80%"}
-            %h6
-              UI DESIGN &amp; DEVELOPER
-              %span 70%
-            .progress
-              .progress-bar.progress-bar-striped.active{:style => "width: 70%"}
-            %h6
-              HTML/CSS
-              %span 90%
-            .progress
-              .progress-bar.progress-bar-striped.active{:style => "width: 90%"}
-            %h6
-              Javascript/JQuery
-              %span 75%
-            .progress
-              .progress-bar.progress-bar-striped.active{:style => "width: 75%"}
-            %h6
-              MongoDB
-              %span 70%
-            .progress
-              .progress-bar.progress-bar-striped.active{:style => "width: 70%"}
+            %ul
+              %li
+                %h6
+                  Rails (3.x, 4.x, 5.x)
+              %li
+                %h6
+                  Ruby (1.8+)
+              %li
+                %h6
+                  WebSockets (ActionCable)
+              %li
+                %h6
+                  Html/Haml
+              %li
+                %h6
+                  JavaScript/ Jquery
+              %li
+                %h6
+                  SQL, PostgreSQL
+              %li
+                %h6
+                  MongoDB, Firebase
+
           .col-md-6.bar-grids
-            %h6
-              AJAX
-              %span 85%
-            .progress
-              .progress-bar.progress-bar-striped.active{:style => "width: 85%"}
-            %h6
-              SOCIAL MEDIA INTEGRATION
-              %span 95%
-            .progress
-              .progress-bar.progress-bar-striped.active{:style => "width: 95%"}
-            %h6
-              API INTEGRATION
-              %span 70%
-            .progress
-              .progress-bar.progress-bar-striped.active{:style => "width: 70%"}
-            %h6
-              PAYMENT GATEWAY INTEGRATION
-              %span 50%
-            .progress
-              .progress-bar.progress-bar-striped.active{:style => "width: 50%"}
-            %h6
-              MySql
-              %span 70%
-            .progress
-              .progress-bar.progress-bar-striped.active{:style => "width: 70%"}
+            %ul
+              %li
+                %h6
+                  RESTful API Development
+            %ul
+              %li
+                %h6
+                  Server Setup and Maintainace (Heroku, AWS, DigitalOcean)
+            %ul
+              %li
+                %h6 
+                  Version Controle Tools (Git)
+            %ul
+              %li
+                %h6 
+                  Resque, Cron
+            %ul
+              %li
+                %h6 
+                  Capistrano - Automated Deployment Tool
+                
+
           .clearfix
-    / //education
+    //education
     / portfolio
     #projects.portfolio
       .container
@@ -220,42 +227,50 @@
             .clearfix
             .resp-tabs-container
               .tab-1.resp-tab-content
-                .tab_img
-                  .col-md-3.portfolio-grids
+                %ul.tab_img
+                  %li.col-md-3.portfolio-grids
                     .grid
                       %a.swipebox{:href => "assets/adzfone.png", :title => "Engage your custoers with a Mobile App."}
                         %img.img-responsive{:alt => "", :src => "/assets/adzfone.png"}/
-                        .figcaption
+                        .figcaption{style: "font-size: 10px;"}
                           %h3 Adzfone
                           %p
                             Engage your custoers with a Mobile App.
-                  .col-md-3.portfolio-grids
+                  %li.col-md-3.portfolio-grids
                     .grid.effect-sarah
                       %a.swipebox{:href => "/assets/referral.jpg", :title => "Increase your customers with Referral Marketing"}
                         %img.img-responsive{:alt => "", :src => "/assets/referral.jpg"}/
-                        .figcaption
+                        .figcaption{style: "font-size: 10px;"}
                           %h3
                             Referral
                             %span Manager
                           %p
                             Increase your customers with Referral Marketing.
-                  .col-md-3.portfolio-grids
+                  %li.col-md-3.portfolio-grids
                     .grid
                       %a.swipebox{:href => "assets/cemplay.png", :title => "This is Signle Sign On for Referral Manager, TRS, Contest and Sweepstakes."}
                         %img.img-responsive{:alt => "", :src => "/assets/cemplay.png"}/
-                        .figcaption
+                        .figcaption{style: "font-size: 10px;"}
                           %h3 CEMPlay
                           %p
                             This is Signle Sign On for Referral Manager, TRS, Contest and Sweepstakes.
 
-                  .col-md-3.portfolio-grids
+                  %li.col-md-3.portfolio-grids
                     .grid
                       %a.swipebox{:href => "assets/no-preview.jpg", :title => "Referd mobile application."}
                         %img.img-responsive{:alt => "", :src => "assets/no-preview.jpg"}/
-                        .figcaption
+                        .figcaption{style: "font-size: 10px;"}
                           %h3 Referd
                           %p
-                            New way of connecting
+                            New way of connecting professionals
+                  %li.col-md-3.portfolio-grids
+                    .grid
+                      %a.swipebox{:href => "assets/no-preview.jpg", :title => "The Tracking App"}
+                        %img.img-responsive{:alt => "", :src => "/assets/no-preview.jpg"}/
+                        .figcaption{style: "font-size: 10px;"}
+                          %h3 SpotMe
+                          %p
+                            The tracking app for safety
                   .clearfix
         :javascript
           $(document).ready(function() {
@@ -309,20 +324,7 @@
             2016 My Resume. | Design by and for
             %a{:href => "https://www.facebook.com/IAmAkshayShirole"} Akshay Shirole
       :javascript
-        var Tawk_API = Tawk_API || {},
-            Tawk_LoadStart = new Date();
-        (function() {
-        	var s1 = document.createElement("script"),
-        	    s0 = document.getElementsByTagName("script")[0];
-        	s1.async = true;
-        	s1.src = 'https://embed.tawk.to/57c7c76a52bbe76938da9a7e/default';
-        	s1.charset = 'UTF-8';
-        	s1.setAttribute('crossorigin', '*');
-        	s0.parentNode.insertBefore(s1, s0);
-        })();
-      :javascript
         $(document).ready(function() {
-
         	var defaults = {
         		containerID : 'toTop', // fading element id
         		containerHoverID : 'toTopHover', // fading element hover id
